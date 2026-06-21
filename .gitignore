@@ -1,0 +1,45 @@
+# Build output
+bin/
+obj/
+out/
+
+# .NET
+*.user
+*.suo
+.vs/
+*.userprefs
+.idea/
+
+# EF Core
+*.db
+*.db-shm
+*.db-wal
+
+# Environment & secrets
+.env
+.env.local
+.env.*.local
+appsettings.local.json
+appsettings.Development.json
+
+# Node / Vite / React
+node_modules/
+dist/
+.vite/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Docker
+docker-compose.override.yml
+
+# Docs
+docs/
+
+# Logs
+*.log
+logs/

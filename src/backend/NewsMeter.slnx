@@ -1,0 +1,7 @@
+<Solution>
+  <Folder Name="/NewsMeter.Api/">
+    <Project Path="NewsMeter.Api/NewsMeter.API.csproj" />
+  </Folder>
+  <Project Path="NewsMeter.Core/NewsMeter.Core.csproj" />
+  <Project Path="NewsMeter.Infrastructure/NewsMeter.Infrastructure.csproj" />
+</Solution>

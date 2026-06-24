@@ -8,7 +8,7 @@ public class Phrase
     public bool IsActive { get; set; }
     public decimal? Multiplier { get; set; }
     public int? MinAbsolute { get; set; }
-    public DateTime? DeletedAt { get; set; }
+    public DateTimeOffset? DeletedAt { get; set; }
     public ICollection<Article> Articles { get; set; } = [];
     public ICollection<AlertRule> AlertRules { get; set; } = [];
 }

@@ -1,0 +1,9 @@
+<Solution>
+  <Folder Name="/Solution Items/">
+    <File Path="Directory.Build.props" />
+    <File Path="Directory.Packages.props" />
+  </Folder>
+  <Project Path="NewsMeter.Api/NewsMeter.API.csproj" />
+  <Project Path="NewsMeter.Core/NewsMeter.Core.csproj" />
+  <Project Path="NewsMeter.Infrastructure/NewsMeter.Infrastructure.csproj" />
+</Solution>

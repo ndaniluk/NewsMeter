@@ -1,6 +1,6 @@
-﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations;
 
-namespace NewsMeter.Infrastructure.Identity;
+namespace NewsMeter.API.Requests;
 
 public class AuthRequest
 {

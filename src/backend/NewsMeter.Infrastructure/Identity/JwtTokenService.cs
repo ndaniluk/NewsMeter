@@ -17,11 +17,6 @@ public class JwtTokenService : IJwtTokenService
 
     public string GenerateToken(AppUser user)
     {
-        if (_jwtPayload is null)
-        {
-            throw new InvalidOperationException("JWT configuration is missing");
-        }
-
         if (string.IsNullOrEmpty(user.Email))
         {
             throw new InvalidOperationException("User email is required to generate token");

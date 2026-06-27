@@ -1,4 +1,4 @@
-namespace NewsMeter.Core.Entities;
+namespace NewsMeter.Core.Entities.Domain;
 
 public class GlobalSettings
 {

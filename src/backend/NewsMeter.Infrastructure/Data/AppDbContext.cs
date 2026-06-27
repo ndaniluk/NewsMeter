@@ -1,12 +1,14 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
-using NewsMeter.Core.Entities;
+using NewsMeter.Core.Entities.Domain;
+using NewsMeter.Infrastructure.Identity;
 using System.Text.Json;
 
 
 namespace NewsMeter.Infrastructure.Data;
 
-public class AppDbContext(DbContextOptions<AppDbContext> options) : DbContext(options)
+public class AppDbContext(DbContextOptions<AppDbContext> options) : IdentityDbContext<AppUser>(options)
 {
     public DbSet<AlertRule> AlertRules { get; set; }
     public DbSet<Article> Articles { get; set; }

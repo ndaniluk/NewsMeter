@@ -43,3 +43,9 @@ docs/
 # Logs
 *.log
 logs/
+
+# Sample data files
+*.xml
+
+# Temp files
+*.tmp

@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
-using NewsMeter.Core.Entities.Domain;
+using NewsMeter.Core.Entities;
 using NewsMeter.Infrastructure.Identity;
 using System.Text.Json;
 

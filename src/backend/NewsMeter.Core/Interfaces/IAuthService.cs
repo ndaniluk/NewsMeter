@@ -1,4 +1,6 @@
-namespace NewsMeter.Infrastructure.Identity;
+using NewsMeter.Core.DTOs;
+
+namespace NewsMeter.Core.Interfaces;
 
 public interface IAuthService
 {

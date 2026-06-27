@@ -1,6 +1,6 @@
 using System.Text.Json.Serialization;
 
-namespace NewsMeter.Core.Entities.Domain;
+namespace NewsMeter.Core.Entities;
 
 [JsonPolymorphic(TypeDiscriminatorPropertyName = "$type")]
 [JsonDerivedType(typeof(EmailConfiguration), "email")]

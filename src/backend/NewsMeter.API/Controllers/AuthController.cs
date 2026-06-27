@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using NewsMeter.API.Requests;
-using NewsMeter.Infrastructure.Identity;
+using NewsMeter.Core.Interfaces;
 
 namespace NewsMeter.API.Controllers;
 

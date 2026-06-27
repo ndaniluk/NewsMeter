@@ -1,6 +1,6 @@
 using NewsMeter.Core.Enums;
 
-namespace NewsMeter.Core.Entities.Domain;
+namespace NewsMeter.Core.Entities;
 
 public class NotificationChannel
 {

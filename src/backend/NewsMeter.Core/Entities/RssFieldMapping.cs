@@ -1,4 +1,4 @@
-namespace NewsMeter.Core.Entities.Domain;
+namespace NewsMeter.Core.Entities;
 
 public class RssFieldMapping
 {

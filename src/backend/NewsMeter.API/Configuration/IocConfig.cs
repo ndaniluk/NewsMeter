@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
+using NewsMeter.Core.Interfaces;
 using NewsMeter.Infrastructure.Data;
 using NewsMeter.Infrastructure.Identity;
 using System.Text;

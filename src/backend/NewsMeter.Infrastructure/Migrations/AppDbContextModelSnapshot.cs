@@ -145,7 +145,7 @@ namespace NewsMeter.Infrastructure.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
-            modelBuilder.Entity("NewsMeter.Core.Entities.Domain.AlertRule", b =>
+            modelBuilder.Entity("NewsMeter.Core.Entities.AlertRule", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -171,7 +171,7 @@ namespace NewsMeter.Infrastructure.Migrations
                     b.ToTable("AlertRules");
                 });
 
-            modelBuilder.Entity("NewsMeter.Core.Entities.Domain.Article", b =>
+            modelBuilder.Entity("NewsMeter.Core.Entities.Article", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -208,7 +208,7 @@ namespace NewsMeter.Infrastructure.Migrations
                     b.ToTable("Articles");
                 });
 
-            modelBuilder.Entity("NewsMeter.Core.Entities.Domain.GlobalSettings", b =>
+            modelBuilder.Entity("NewsMeter.Core.Entities.GlobalSettings", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -243,7 +243,7 @@ namespace NewsMeter.Infrastructure.Migrations
                     b.ToTable("GlobalSettings");
                 });
 
-            modelBuilder.Entity("NewsMeter.Core.Entities.Domain.NotificationChannel", b =>
+            modelBuilder.Entity("NewsMeter.Core.Entities.NotificationChannel", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -271,7 +271,7 @@ namespace NewsMeter.Infrastructure.Migrations
                     b.ToTable("NotificationChannels");
                 });
 
-            modelBuilder.Entity("NewsMeter.Core.Entities.Domain.Phrase", b =>
+            modelBuilder.Entity("NewsMeter.Core.Entities.Phrase", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -302,7 +302,7 @@ namespace NewsMeter.Infrastructure.Migrations
                     b.ToTable("Phrases");
                 });
 
-            modelBuilder.Entity("NewsMeter.Core.Entities.Domain.RssSource", b =>
+            modelBuilder.Entity("NewsMeter.Core.Entities.RssSource", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -331,7 +331,7 @@ namespace NewsMeter.Infrastructure.Migrations
                     b.ToTable("RssSources");
                 });
 
-            modelBuilder.Entity("NewsMeter.Core.Entities.Domain.SpikeEvent", b =>
+            modelBuilder.Entity("NewsMeter.Core.Entities.SpikeEvent", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -486,9 +486,9 @@ namespace NewsMeter.Infrastructure.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("NewsMeter.Core.Entities.Domain.AlertRule", b =>
+            modelBuilder.Entity("NewsMeter.Core.Entities.AlertRule", b =>
                 {
-                    b.HasOne("NewsMeter.Core.Entities.Domain.Phrase", "Phrase")
+                    b.HasOne("NewsMeter.Core.Entities.Phrase", "Phrase")
                         .WithMany("AlertRules")
                         .HasForeignKey("PhraseId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -497,9 +497,9 @@ namespace NewsMeter.Infrastructure.Migrations
                     b.Navigation("Phrase");
                 });
 
-            modelBuilder.Entity("NewsMeter.Core.Entities.Domain.Article", b =>
+            modelBuilder.Entity("NewsMeter.Core.Entities.Article", b =>
                 {
-                    b.HasOne("NewsMeter.Core.Entities.Domain.Phrase", "Phrase")
+                    b.HasOne("NewsMeter.Core.Entities.Phrase", "Phrase")
                         .WithMany("Articles")
                         .HasForeignKey("PhraseId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -508,9 +508,9 @@ namespace NewsMeter.Infrastructure.Migrations
                     b.Navigation("Phrase");
                 });
 
-            modelBuilder.Entity("NewsMeter.Core.Entities.Domain.RssSource", b =>
+            modelBuilder.Entity("NewsMeter.Core.Entities.RssSource", b =>
                 {
-                    b.OwnsOne("NewsMeter.Core.Entities.Domain.RssFieldMapping", "FieldMapping", b1 =>
+                    b.OwnsOne("NewsMeter.Core.Entities.RssFieldMapping", "FieldMapping", b1 =>
                         {
                             b1.Property<Guid>("RssSourceId");
 
@@ -551,15 +551,15 @@ namespace NewsMeter.Infrastructure.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("NewsMeter.Core.Entities.Domain.SpikeEvent", b =>
+            modelBuilder.Entity("NewsMeter.Core.Entities.SpikeEvent", b =>
                 {
-                    b.HasOne("NewsMeter.Core.Entities.Domain.AlertRule", "AlertRule")
+                    b.HasOne("NewsMeter.Core.Entities.AlertRule", "AlertRule")
                         .WithMany()
                         .HasForeignKey("AlertRuleId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("NewsMeter.Core.Entities.Domain.Phrase", "Phrase")
+                    b.HasOne("NewsMeter.Core.Entities.Phrase", "Phrase")
                         .WithMany()
                         .HasForeignKey("PhraseId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -570,7 +570,7 @@ namespace NewsMeter.Infrastructure.Migrations
                     b.Navigation("Phrase");
                 });
 
-            modelBuilder.Entity("NewsMeter.Core.Entities.Domain.Phrase", b =>
+            modelBuilder.Entity("NewsMeter.Core.Entities.Phrase", b =>
                 {
                     b.Navigation("AlertRules");
 

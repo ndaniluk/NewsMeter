@@ -1,4 +1,3 @@
-﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using NewsMeter.API.Requests;
 using NewsMeter.Infrastructure.Identity;
@@ -9,57 +8,34 @@ namespace NewsMeter.API.Controllers;
 [ApiController]
 public class AuthController : ControllerBase
 {
-    private readonly UserManager<AppUser> _userManager;
-    private readonly IJwtTokenService _jwtTokenService;
+    private readonly IAuthService _authService;
 
-    public AuthController(UserManager<AppUser> userManager, IJwtTokenService jwtTokenService)
+    public AuthController(IAuthService authService)
     {
-        _userManager = userManager;
-        _jwtTokenService = jwtTokenService;
+        _authService = authService;
     }
 
     [HttpPost("register")]
-    public async Task<IActionResult> Register(AuthRequest registerRequest)
+    public async Task<IActionResult> Register(AuthRequest request)
     {
-        var existingUser = await _userManager.FindByEmailAsync(registerRequest.Email);
-        if (existingUser != null)
+        var result = await _authService.RegisterAsync(request.Email, request.Password);
+
+        if (result.Succeeded)
         {
-            return Conflict("User already exists");
+            return Ok(new { result.Token });
         }
 
-        var user = new AppUser()
-        {
-            Email = registerRequest.Email,
-            UserName = registerRequest.Email
-        };
-
-        var userIdentity = await _userManager.CreateAsync(user, registerRequest.Password);
-
-        if (userIdentity.Succeeded)
-        {
-            return Ok();
-        }
-        else
-        {
-            return BadRequest(userIdentity.Errors);
-        }
+        return BadRequest(result.Errors);
     }
 
     [HttpPost("login")]
-    public async Task<IActionResult> Login(AuthRequest loginRequest)
+    public async Task<IActionResult> Login(AuthRequest request)
     {
-        var existingUser = await _userManager.FindByEmailAsync(loginRequest.Email);
-        if (existingUser == null)
-        {
-            return Unauthorized();
-        }
+        var result = await _authService.LoginAsync(request.Email, request.Password);
 
-        var isUserAuthenticated = await _userManager.CheckPasswordAsync(existingUser, loginRequest.Password);
-
-        if (isUserAuthenticated)
+        if (result.Succeeded)
         {
-            var token = _jwtTokenService.GenerateToken(existingUser);
-            return Ok(new { token });
+            return Ok(new { result.Token });
         }
 
         return Unauthorized();
